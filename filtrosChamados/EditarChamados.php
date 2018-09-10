@@ -77,38 +77,51 @@
 						{
 							//DÚVIDAS
 							echo'<div class="wrap-contact3-form-radio">
-									<div class="contact3-form-radio m-r-42">
-										<input class="input-radio3" id="radio1" type="radio" checked = "true" name="selecao" value="Dúvida" checked="checked">
-										<label class="label-radio3" for="radio1">
-											Dúvidas
-										</label>
-									</div>
+								<div class="contact3-form-radio m-r-42">
+									<input class="input-radio3" id="radio1" type="radio" checked = "true" name="selecao" value="Dúvida" checked="checked">
+									<label class="label-radio3" for="radio1">
+										Dúvidas
+									</label>
+								</div>
 
-									<div class="contact3-form-radio">
-										<input class="input-radio3" id="radio2" type="radio" name="selecao" value="Problema">
-										<label class="label-radio3" for="radio2">
-											Problemas
-										</label>
-									</div>
-								</div>';
-
+								<div class="contact3-form-radio">
+									<input class="input-radio3" id="radio2" type="radio" name="selecao" value="Problema">
+									<label class="label-radio3" for="radio2">
+										Problemas
+									</label>
+								</div>
+							</div>';
 						}
 					?>
 
 					<div class="wrap-input3 validate-input" data-validate = "Digite uma mensagem">
-						<textarea class="input3" name="solucao" >Chamado número: <?php echo $linha['NumeroChamado']; ?>, 	 Aberto em: <?php echo $linha['DataAbertura']; ?> Por: <?php echo $linha['NomeUsuario']; ?> Portador(a) do e-mail para contato: <?php echo $linha['Email']; ?>, ramal para contato: <?php echo $linha['Ramal']; ?></textarea>
+						<textarea class="input3" name="solucao" readonly>Chamado: <?php echo $linha['NumeroChamado']; ?>, 	 Aberto em: <?php echo $linha['DataAbertura']; ?> Por: <?php echo $linha['NomeUsuario']; ?> Portador(a) do e-mail para contato: <?php echo $linha['Email']; ?>
+						Ramal para contato: <?php echo $linha['Ramal']; ?> 
+					Status:#<?php echo $linha['Status']; ?>#</textarea>
 						<span class="focus-input3"></span>
 					</div>
 
 					<div class="wrap-input3 validate-input" data-validate = "Digite uma mensagem">
-						<textarea class="input3" name="info" readonly > Descrição: <?php echo $linha['Mensagem']; ?></textarea>
+						<textarea class="input3" name="info" readonly rows="12"> Descrição: <?php echo $linha['Mensagem']; ?></textarea>
 					</div>
 
 					<div class="wrap-input3 validate-input" data-validate = "Digite uma mensagem">
-						<textarea class="input3" name="solucao" placeholder="Digite a solução para o chamado"></textarea>
+						<textarea class="input3" name="solucao" rows="12" placeholder="Solução: <?php echo $linha['Solucao']; ?>"></textarea>
 						<span class="focus-input3"></span>
 					</div>
-
+										
+					<div>
+						<select class="selection-2" name="status"> 
+							<!-- colocar required porém a tela de dúvidas tambem necessita do campo-->
+							<option value="">Status do chamado</option>>
+							<option>Aberto</option>
+							<option>Em andamento</option>
+							<option>Fechado</option>
+						</select>
+					</div>
+					<span class="focus-input3"></span>
+				
+					
 					<div class="container-contact3-form-btn">
 						<button class="button alt" type="submit">
 							Salvar

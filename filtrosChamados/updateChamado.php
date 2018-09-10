@@ -5,7 +5,7 @@
 
 
     $solucao = $_POST['solucao'];
-
+    $status = $_POST['status'];
     $ch = 4;
 
     // BUSCAR NO BANCO OK
@@ -22,14 +22,21 @@
     // $totalRegistros = mysqli_num_rows ($result);
 
     //ATRIBUIR AO BANCO OK
-    $sql = "UPDATE chamadosset SET Solucao = $solucao WHERE NumeroChamado = $ch";
-    $result = mysqli_query($conexao, $sql);
+    if($status != "")
+    {
+        $sql = "UPDATE chamadosset SET Status = '$status' WHERE NumeroChamado = $ch";
+        $result = mysqli_query($conexao, $sql);
+    }
+
+    $sql1 = "UPDATE chamadosset SET Solucao = '$solucao' WHERE NumeroChamado = $ch";
+    $result1 = mysqli_query($conexao, $sql1);
 
     //INSERE NO BANCO E VERIFICA SE INSERIU
-    if ($result) {
+    if ($result && $result1) {
         echo"<script language='javascript' type='text/javascript'>alert('Salvo com sucesso');window.location.href='EditarChamados.php';</script>";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conexao);
+        echo "Error: " . $sql1 . "<br>" . mysqli_error($conexao);
         echo"<script language='javascript' type='text/javascript'>alert('FALHA, SEUS DADOS NÃO FORAM SALVOS.');window.location.href='EditarChamados.php';</script>";
     }
     
