@@ -19,11 +19,12 @@
 			</header>
 
 		<!-- Nav -->
-			<nav id="menu">
+		<nav id="menu">
 				<ul class="links">
 					<li><a href="Home.html">Página Inicial</a></li>
 					<li><a href="Formulario.html">Chamados e dúvidas</a></li>
 					<li><a href="FormularioLogin/LoginChamados.html">Atender chamados</a></li>
+					<li><a href="VerChamados.php">Ver todos os chamados abertos</a></li>
 				</ul>
 			</nav>
 
@@ -37,8 +38,9 @@
 				<table>
 					<thead>
 						<tr>
-							<th>Nome</th>
+							<th>CH</th>
 							<th>Descrição</th>
+							<th>Nome</th>	
 							<th>Tipo</th>	
 						</tr>
 					</thead>
@@ -50,8 +52,9 @@
 							while ($row = mysqli_fetch_assoc($result))
 							{
 								echo	'<tr>';
-								echo	'<td>'. $row["NomeUsuario"]. '</td>';
+								echo	'<td>'. $row["NumeroChamado"]. '</td>';
 								echo	'<td width = "30px">'. $row["Mensagem"]. '</td>';
+								echo	'<td>'. $row["NomeUsuario"]. '</td>';
 								echo	'<td>'. $row["Tipo"]. '</td>';
 								echo	'</tr>';
 							}
