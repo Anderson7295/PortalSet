@@ -32,14 +32,14 @@
 
 			<h3>Chamados Abertos</h3>
 
-			<h4>Hoje: <?php echo $date ?> </h4>
+			<h4>Hoje: <?php echo $data ?> </h4>
 			
 			<div class="table-wrapper">
 				<table>
 					<thead>
 						<tr>
 							<th>CH</th>
-							<th>Descrição</th>
+							<th width = "1100px" heigth = "10px">Descrição</th>
 							<th>Nome</th>	
 							<th>Tipo</th>	
 						</tr>
@@ -53,7 +53,7 @@
 							{
 								echo	'<tr>';
 								echo	'<td>'. $row["NumeroChamado"]. '</td>';
-								echo	'<td width = "30px">'. $row["Mensagem"]. '</td>';
+								echo	'<td width = "100px" heigth = "50px">'. $row["Mensagem"]. '</td>';
 								echo	'<td>'. $row["NomeUsuario"]. '</td>';
 								echo	'<td>'. $row["Tipo"]. '</td>';
 								echo	'</tr>';
