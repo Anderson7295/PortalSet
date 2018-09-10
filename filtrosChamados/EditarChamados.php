@@ -32,7 +32,7 @@
 		require_once '../php/Conexao.php';
 		require_once '../php/DataHoraAtual.php';
 		
-		$sql = "SELECT * FROM chamadosset WHERE NumeroChamado = '4'";
+		$sql = "SELECT * FROM chamadosset WHERE NumeroChamado = '10'";
 		$result = mysqli_query($conexao, $sql);
 		while($row = mysqli_fetch_assoc($result))
 		{
@@ -46,7 +46,7 @@
 			<div class="wrap-contact3">
 				<form action="updateChamado.php" class="contact3-form validate-form" method="POST">
 					<ul class="icons">
-						<li><a href="../PortalSet/Home.html" class="icon round fas fa-home"><span class="label"></span></a></li>
+						<li><a href="../Home.html" class="icon round fas fa-home"><span class="label"></span></a></li>
 					</ul>
 
 					<span class="contact3-form-title">
@@ -95,9 +95,7 @@
 					?>
 
 					<div class="wrap-input3 validate-input" data-validate = "Digite uma mensagem">
-						<textarea class="input3" name="solucao" readonly>Chamado: <?php echo $linha['NumeroChamado']; ?>, 	 Aberto em: <?php echo $linha['DataAbertura']; ?> Por: <?php echo $linha['NomeUsuario']; ?> Portador(a) do e-mail para contato: <?php echo $linha['Email']; ?>
-						Ramal para contato: <?php echo $linha['Ramal']; ?> 
-					Status:#<?php echo $linha['Status']; ?>#</textarea>
+						<textarea class="input3" name="solucao" readonly>CH: <?php echo $linha['NumeroChamado']; ?> ~~~ CRIADO EM: <?php echo $linha['DataAbertura']; ?> ~~~ USUÁRIO: <?php echo $linha['NomeUsuario']; ?> ~~~ E-MAIL: <?php echo $linha['Email']; ?> ~~~ RAMAL: <?php echo $linha['Ramal']; ?>            ### Status:<?php echo $linha['Status']; ?>###</textarea>
 						<span class="focus-input3"></span>
 					</div>
 

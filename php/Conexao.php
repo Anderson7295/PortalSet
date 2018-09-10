@@ -6,10 +6,10 @@
 
     
     // / check connection /
-    // if (!$con) {
-    //     printf("Connect failed: %s\n", mysqli_connect_error());
-    //     exit();
-    // }
+    if (!$conexao) {
+        printf("Connect failed: %s\n", mysqli_connect_error());
+        exit();
+    }
 
 
 ?>
