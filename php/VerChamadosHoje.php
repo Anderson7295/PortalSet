@@ -22,7 +22,7 @@
 		<nav id="menu">
 				<ul class="links">
 					<li><a href="Home.html">Página Inicial</a></li>
-					<li><a href="Formulario.html">Chamados e dúvidas</a></li>
+					<li><a href="Formulario.html">Dúvidas e problemas</a></li>
 					<li><a href="FormularioLogin/LoginChamados.html">Atender chamados</a></li>
 					<li><a href="VerChamados.php">Ver todos os chamados abertos</a></li>
 				</ul>
@@ -30,9 +30,9 @@
 
 			<br><br><br>
 
-			<h3>Chamados Abertos</h3>
+			<h3>Chamados Abertos Hoje</h3>
 
-			<h4>Hoje: <?php echo $data ?> </h4>
+			<h4><?php echo $data ?> <br><br> </h4>
 			
 			<div class="table-wrapper">
 				<table>
@@ -46,8 +46,7 @@
 					</thead>
 					<tbody>
 						<?php
-						 
-							$sql = "SELECT * FROM chamadosset";
+							$sql = "SELECT * FROM chamadosset WHERE cast(DataAbertura as date) = '$date' ";
 							$result = mysqli_query($conexao, $sql);
 							while ($row = mysqli_fetch_assoc($result))
 							{
