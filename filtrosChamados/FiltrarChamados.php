@@ -23,8 +23,8 @@
 				<ul class="links">
 					<li><a href="../Home.html">Página Inicial</a></li>
 					<li><a href="../Formulario.html">Chamados e dúvidas</a></li>
-					<li><a href="../FormularioLogin/LoginChamados.html">Atender chamados</a></li>
 					<li><a href="../filtrosChamados/FiltrarChamados.php">Pesquisar chamados</a></li>
+					<li><a href="../FormularioLogin/LoginChamados.html">Atender chamados</a></li>
 				</ul>
 			</nav>
 
@@ -94,32 +94,38 @@
 								if(!empty($ch))
 								{
 									$filtros[] = sprintf("NumeroChamado = '%s'", $ch);
+									$mostrar[] = sprintf("NumeroChamado = '%s'", $ch);
 								}
 								if(!empty($nome))
 								{
 									$filtros[] = sprintf("NomeUsuario = '%s'", $nome);
+									$mostrar[] = sprintf("NomeUsuario = '%s'", $nome);
 								}
 								if(!empty($urgencia))
 								{
 									$filtros[] = sprintf("Urgencia = '%s'", $urgencia);
+									$mostrar[] = sprintf("Urgencia = '%s'", $urgencia);
 								}
 								if(!empty($status))
 								{
 									$filtros[] = sprintf("Status = '%s'", $status);
+									$mostrar[] = sprintf("Status = '%s'", $status);
 								}
 								if(!empty($tipo))
 								{
 									$filtros[] = sprintf("Tipo = '%s'", $tipo);
+									$mostrar[] = sprintf("Tipo = '%s'", $tipo);
 								}
 								if(!empty($dataAbertura))
 								{
 									$filtros[] = sprintf("cast(DataAbertura as date) = '%s'", $dataAbertura);
+									$mostrar[] = sprintf("Data de abertura  = '%s'", $dataAbertura);
 								}
 
-								//MOSTRAR FILTROS UTILIZADOS
+								//MOSTRAR FILTROS UTILIZADOS 
 								if(isset($filtros))
 								{				
-									foreach($filtros as $valores) echo $valores . " - ";
+									foreach($mostrar as $valores) echo $valores . " - -|- - ";
 								}
 								
 
