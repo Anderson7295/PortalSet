@@ -75,6 +75,7 @@
 					<table>
 						<thead>
 							<tr>
+								<th>Editar</th>
 								<th>CH</th>
 								<th width = "1100px" heigth = "10px">Descrição</th>
 								<th>Nome</th>	
@@ -130,11 +131,15 @@
 									$result = mysqli_query($conexao, $sql);
 									while ($row = mysqli_fetch_assoc($result))
 									{
+										// $temp = "";
 										echo	'<tr>';
+										echo	'<td> <button class="button alt" type="submit">!</button> </td>';
 										echo	'<td>'. $row["NumeroChamado"]. '</td>';
+										// $temp = $row["NumeroChamado"];
 										echo	'<td >'. wordwrap($row["Mensagem"], 15, "\n", true) . '</td>';
 										echo	'<td>'. $row["NomeUsuario"]. '</td>';
 										echo	'<td>'. $row["Tipo"]. '</td>';
+										echo	'</form>';
 										echo	'</tr>';
 									}
 									$totalRegistros = mysqli_num_rows ($result);
@@ -175,7 +180,7 @@
 
 						<tfoot>
 							<tr>
-								<td colspan="2"> <b>Total:</b> </td>
+								<td colspan="3"> <b>Total:</b> </td>
 								<td>
 									<?php
 										// MOSTRA TOTAL APENAS SE EXISTIR VALOR NA VARIAVEL

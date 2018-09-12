@@ -31,8 +31,14 @@
 	<?php
 		require_once '../php/Conexao.php';
 		require_once '../php/DataHoraAtual.php';
+		require_once 'FiltrarChamadosEdita.php';
+
+		include 'FiltrarChamadosEdita.php';
 		
-		$sql = "SELECT * FROM chamadosset WHERE NumeroChamado = '10'";
+		$ch = $POST['$temp'];
+
+
+		$sql = "SELECT * FROM chamadosset WHERE NumeroChamado = '$ch'";
 		$result = mysqli_query($conexao, $sql);
 		while($row = mysqli_fetch_assoc($result))
 		{

@@ -14,7 +14,7 @@
           die();
         }else{
           setcookie("login",$login);
-          header("Location:../filtrosChamados/FiltrarChamados.php");
+          header("Location:../filtrosChamados/FiltrarChamadosEdita.php");
         }
     
 
