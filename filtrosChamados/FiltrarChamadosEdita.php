@@ -31,7 +31,7 @@
 			<br><br><br>
 
 			<h3>Chamados Abertos </h3>
-			<form action="#tabelaChamados" method = "POST"> <b>Defina os filtros:</b>
+			<form action="#tabela" method = "POST"> <b>Defina os filtros:</b>
 				<p><input id = "chamado" name = "chamado" type = "text" placeholder = "Nº Chamado" value = ""  style="width:150px;" ></p>
 				<p><input id = "nome" name = "nome" type = "text" placeholder = "Nome Usuário" value = "" style="width:400px;"></p>
 				<p>
@@ -61,16 +61,15 @@
 					</select>
 				</p>
 				<p>Data de abertura: <input id = "dataAbertura" name = "dataAbertura" type = "date" value = "" style = "color:black;"></p>
-
+				<section id = "tabela"></section>
 				<button class="button alt"  type="submit">
 					Filtrar
 				</button>
-
 			</form>
 			
-			<h4> Filtros:  </h4>
+			<h4> <br> Filtros:  </h4>
 			
-			<section id = "tabelaChamados">
+			<section id = "bemnatabela">
 				<div class="table-wrapper">
 					<table>
 						<thead>
@@ -129,13 +128,16 @@
 								{
 									$sql = "SELECT * FROM chamadosset WHERE ".implode(' AND ', $filtros);//importando todos os filtros na pesquisa do banco
 									$result = mysqli_query($conexao, $sql);
+
+									$cod = 0;
+									
 									while ($row = mysqli_fetch_assoc($result))
 									{
-										// $temp = "";
+										$cod = $row['NumeroChamado'];
 										echo	'<tr>';
-										echo	'<td> <button class="button alt" type="submit">!</button> </td>';
+										echo	'<form action = "EditarChamados.php">';
+										echo	'<td><button id = "$cod" class="button">!</button></td>';
 										echo	'<td>'. $row["NumeroChamado"]. '</td>';
-										// $temp = $row["NumeroChamado"];
 										echo	'<td >'. wordwrap($row["Mensagem"], 15, "\n", true) . '</td>';
 										echo	'<td>'. $row["NomeUsuario"]. '</td>';
 										echo	'<td>'. $row["Tipo"]. '</td>';
