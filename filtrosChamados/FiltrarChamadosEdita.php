@@ -129,14 +129,12 @@
 									$sql = "SELECT * FROM chamadosset WHERE ".implode(' AND ', $filtros);//importando todos os filtros na pesquisa do banco
 									$result = mysqli_query($conexao, $sql);
 
-									$cod = 0;
-									
 									while ($row = mysqli_fetch_assoc($result))
-									{
-										$cod = $row['NumeroChamado'];
+									{								
 										echo	'<tr>';
-										echo	'<form action = "EditarChamados.php">';
-										echo	'<td><button id = "$cod" class="button">!</button></td>';
+										echo	'<form action = "EditarChamados.php" method="POST">';
+										echo	'<input type="hidden" name = "ch" id = "ch" value ="'.$row["NumeroChamado"].'">';
+										echo	'<td><button type = "submit" id = "btn" class="button">!</button></td>';
 										echo	'<td>'. $row["NumeroChamado"]. '</td>';
 										echo	'<td >'. wordwrap($row["Mensagem"], 15, "\n", true) . '</td>';
 										echo	'<td>'. $row["NomeUsuario"]. '</td>';

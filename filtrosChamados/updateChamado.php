@@ -7,9 +7,13 @@
     $solucao = $_POST['solucao'];
     $status = $_POST['status'];
     
-    $ch = 10;
+    $ch = $_POST['ch'];
 
-    echo $dateTime;
+    echo $ch;
+
+
+
+    //echo $dateTime;
     // BUSCAR NO BANCO OK
     // $sql = "SELECT * FROM chamadosset WHERE NomeUsuario = 'anderson' AND Mensagem = 'TESTE'";
     // $result = mysqli_query($conexao, $sql);
@@ -24,7 +28,7 @@
     // $totalRegistros = mysqli_num_rows ($result);
 
     //ATRIBUIR AO BANCO OK
-    if($status !="")
+    if(isset($status) && $status !="")
     {
         // ATUALIZA O STATUS DEFINIDO
         $sql1 = "UPDATE chamadosset SET Status = '$status' WHERE NumeroChamado = $ch";
@@ -50,13 +54,19 @@
     $result4 = mysqli_query($conexao, $sql4);
     
     // INSERE A NOVA SOLUCAO NO BANCO
-    $sql = "UPDATE chamadosset SET Solucao = '$solucao' WHERE NumeroChamado = $ch";
-    $result = mysqli_query($conexao, $sql);
-
+    if($solucao != "")
+    {
+        $sql = "UPDATE chamadosset SET Solucao = '$solucao' WHERE NumeroChamado = $ch";
+        $result = mysqli_query($conexao, $sql);
+    }
+    
     //INSERE NO BANCO E VERIFICA SE INSERIU
-    if ($result && $result1) {
-        echo"<script language='javascript' type='text/javascript'>alert('Salvo com sucesso');window.location.href='EditarChamados.php';</script>";
-    } else {
+    if ($result && $result4 || $result1 && $result4 || $result1 && $result && $result4 ) //ALTERADA SOLUÇÃO E STATUS, 
+    {
+        echo"<script language='javascript' type='text/javascript'>alert('Salvo com sucesso');window.location.href='FiltrarChamadosEdita.php';</script>";
+    } 
+    else 
+    {
         echo "Error: " . $sql . "<br>" . mysqli_error($conexao);
         echo "Error: " . $sql1 . "<br>" . mysqli_error($conexao);
         echo "Error: " . $sql2 . "<br>" . mysqli_error($conexao);

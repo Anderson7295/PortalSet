@@ -32,8 +32,11 @@
 		require_once '../php/Conexao.php';
 		require_once '../php/DataHoraAtual.php';
 		
+
 		
-		$sql = "SELECT * FROM chamadosset WHERE NumeroChamado = '10'";
+		$ch_clicado = $_POST['ch'];
+
+		$sql = "SELECT * FROM chamadosset WHERE NumeroChamado = '$ch_clicado'";
 		$result = mysqli_query($conexao, $sql);
 		while($row = mysqli_fetch_assoc($result))
 		{
@@ -47,6 +50,7 @@
 			<div class="wrap-contact3">
 				<form action="updateChamado.php" class="contact3-form validate-form" method="POST">
 					<ul class="icons">
+						<li><a href="FiltrarChamadosEdita.php" class="icon round fas fa-mail-reply"><span class="label"></span></a></li>
 						<li><a href="../Home.html" class="icon round fas fa-home"><span class="label"></span></a></li>
 					</ul>
 
@@ -111,16 +115,18 @@
 					</div>
 										
 					<div>
-						<select class="selection-2" name="status"> 
+						<select class="selection-2" name="status" required> 
 							<!-- colocar required porém a tela de dúvidas tambem necessita do campo-->
-							<option value="">Status do chamado</option>>
+							<option value="" >Modificar status do chamado</option>>
 							<option>Aberto</option>
 							<option>Em andamento</option>
 							<option>Fechado</option>
 						</select>
 					</div>
 					<span class="focus-input3"></span>
-				
+
+					<!-- PASSANDO O NUMERO DO CHAMADO PARA A PROXIMA PAGINA -->
+					<input type="hidden" name = "ch" id = "ch" value = "<?php echo $linha['NumeroChamado'] ?>" > 
 					
 					<div class="container-contact3-form-btn">
 						<button class="button alt" type="submit">
