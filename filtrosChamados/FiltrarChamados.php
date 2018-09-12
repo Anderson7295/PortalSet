@@ -32,10 +32,10 @@
 
 			<h3>Chamados Abertos </h3>
 			<form action="FiltrarChamados.php" method = "POST"> <b>Defina os filtros:</b>
-				<p><input id = "chamado" name = "chamado" type = "text" placeholder = "Número do chamado" value = ""></p>
-				<p><input id = "nome" name = "nome" type = "text" placeholder = "Nome Usuário" value = ""></p>
+				<p><input id = "chamado" name = "chamado" type = "text" placeholder = "Nº Chamado" value = ""  style="width:150px;" ></p>
+				<p><input id = "nome" name = "nome" type = "text" placeholder = "Nome Usuário" value = "" style="width:400px;"></p>
 				<p>
-					<select name="urgencia" id="urgencia" style = "color:grey;">
+					<select name="urgencia" id="urgencia" style = "color:grey; width:400px">
 						<option value="">Urgência do chamado</option>
 						<option>Pode aguardar</option>
 						<option>Atrapalha o fluxo de trabalho</option>
@@ -46,7 +46,7 @@
 					</select>
 				</p>
 				<p>
-					<select name="status" id="status" style = "color:grey;">
+					<select name="status" id="status" style = "color:grey; width:150px">
 						<option value="">Status</option>
 						<option>Aberto</option>
 						<option>Em andamento</option>
@@ -54,7 +54,7 @@
 					</select>
 				</p>
 				<p>
-					<select name="tipo" id="tipo" style = "color:grey;">
+					<select name="tipo" id="tipo" style = "color:grey; width:150px">
 						<option value="">Tipo de chamado</option>
 						<option>Problema</option>
 						<option>Dúvida</option>
@@ -63,7 +63,7 @@
 				<p>Data de abertura: <input id = "dataAbertura" name = "dataAbertura" type = "date" value = "" style = "color:black;"></p>
 
 
-				<button class="button alt" type="submit">
+				<button class="button alt" type="submit" href = "#tabelaChamados" >
 					Filtrar
 				</button>
 
@@ -71,7 +71,7 @@
 			
 			<h4> Filtros:  </h4>
 			
-			<div class="table-wrapper">
+			<div class="table-wrapper" id = "tabelaChamados">
 				<table>
 					<thead>
 						<tr>
@@ -83,6 +83,7 @@
 					</thead>
 					<tbody>
 						<?php
+
 							if( isset($_POST['chamado'])) $ch = $_POST['chamado'];
 							if( isset($_POST['dataAbertura'])) $dataAbertura = $_POST['dataAbertura'];
 							if( isset($_POST['nome'])) $nome = $_POST['nome'];
@@ -114,17 +115,32 @@
 							{
 								$filtros[] = sprintf("cast(DataAbertura as date) = '%s'", $dataAbertura);
 							}
-							$sqlteste = "SELECT * FROM chamadosset WHERE ".implode(' AND ', $filtros);//importando todos os filtros na pesquisa do banco
-							$result = mysqli_query($conexao, $sqlteste);
+
+							//MOSTRAR FILTROS UTILIZADOS
+							if(isset($filtros))
+							{				
+								foreach($filtros as $valores) echo $valores . " - ";
+							}
+							
+
+
+							if(isset($filtros))
+							{
+								$sql = "SELECT * FROM chamadosset WHERE ".implode(' AND ', $filtros);//importando todos os filtros na pesquisa do banco
+								$result = mysqli_query($conexao, $sql);
 								while ($row = mysqli_fetch_assoc($result))
 								{
 									echo	'<tr>';
 									echo	'<td>'. $row["NumeroChamado"]. '</td>';
-									echo	'<td width = "100px" heigth = "50px">'. $row["Mensagem"]. '</td>';
+									echo	'<td >'. wordwrap($row["Mensagem"], 15, "\n", true) . '</td>';
 									echo	'<td>'. $row["NomeUsuario"]. '</td>';
 									echo	'<td>'. $row["Tipo"]. '</td>';
 									echo	'</tr>';
 								}
+								$totalRegistros = mysqli_num_rows ($result);
+							}
+
+							
 							//var_dump($sqlteste);
 								
 							// COM FILTRO DE DATA
