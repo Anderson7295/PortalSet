@@ -101,7 +101,7 @@
 					?>
 
 					<div class="wrap-input3 validate-input" data-validate = "Digite uma mensagem">
-						<textarea class="input3" name="descricao" readonly>CH: <?php echo $linha['NumeroChamado']; ?> ~~~ CRIADO EM: <?php echo $linha['DataAbertura']; ?> ~~~ USUÁRIO: <?php echo $linha['NomeUsuario']; ?> ~~~ E-MAIL: <?php echo $linha['Email']; ?> ~~~ RAMAL: <?php echo $linha['Ramal']; ?>            ### Status:<?php echo $linha['Status']; ?>###</textarea>
+						<textarea class="input3" name="descricao" readonly>CH: <?php echo $linha['NumeroChamado']; ?> ~~~ CRIADO EM: <?php echo date('d-m-Y  H:i:s', strtotime($linha['DataAbertura'])); ?> ~~~ USUÁRIO: <?php echo $linha['NomeUsuario']; ?> ~~~ E-MAIL: <?php echo $linha['Email']; ?> ~~~ RAMAL: <?php echo $linha['Ramal']; ?>         ### Status:<?php echo $linha['Status']; ?>###</textarea>
 						<span class="focus-input3"></span>
 					</div>
 
