@@ -3743,7 +3743,7 @@
 			}
 
 		#banner:before {
-			-moz-transition: opacity 3s ease;
+			-moz-transition: opacity 3s ease; 
 			-webkit-transition: opacity 3s ease;
 			-ms-transition: opacity 3s ease;
 			transition: opacity 3s ease;
@@ -4066,15 +4066,16 @@
 				text-transform: none !important;
 			}
 
+			/* VELOCIDADE DO BOTÃO DE DESCER A PAGINA */
 			.post .more.current {
 				-moz-transition: height 0.2s ease;
 				-webkit-transition: height 0.2s ease;
 				-ms-transition: height 0.2s ease;
 				transition: height 0.2s ease;
-				-moz-animation: more 0.75s ease-out 2s forwards;
-				-webkit-animation: more 0.75s ease-out 2s forwards;
-				-ms-animation: more 0.75s ease-out 2s forwards;
-				animation: more 0.75s ease-out 2s forwards;
+				-moz-animation: more 0.75s ease-out 1s forwards;
+				-webkit-animation: more 0.75s ease-out 1s forwards;
+				-ms-animation: more 0.75s ease-out 1s forwards;
+				animation: more 0.75s ease-out 1s forwards;
 			}
 
 			.post .more:hover {

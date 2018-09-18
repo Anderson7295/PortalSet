@@ -9,6 +9,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="icon" type="image/png" href="../images/icons/Icons8-Windows-8-Logos-Google-Web-Search.ico"/>
 	</head>
 	<body>
  
@@ -66,11 +67,13 @@
 					Filtrar
 				</button>
 
+				<section id = "tabelaChamados"></section>
+
 			</form>
 			
-			<h4> Filtros:  </h4>
+			<h4> <br> Filtros:  </h4>
 			
-			<section id = "tabelaChamados">
+			<section>
 				<div class="table-wrapper">
 					<table>
 						<thead>

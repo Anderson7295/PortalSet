@@ -8,7 +8,8 @@
 		<title>Portal Set Jeans</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/main.css"/>
+		<link rel="icon" type="image/png" href="../images/icons/Icons8-Windows-8-Files-View-File.ico"/>
 	</head>
 	<body>
  
@@ -31,7 +32,7 @@
 			<br><br><br>
 
 			<h3>Chamados Abertos </h3>
-			<form action="#tabela" method = "POST"> <b>Defina os filtros:</b>
+			<form action="#tabelaChamados" method = "POST"> <b>Defina os filtros:</b>
 				<p><input id = "chamado" name = "chamado" type = "text" placeholder = "Nº Chamado" value = ""  style="width:150px;" ></p>
 				<p><input id = "nome" name = "nome" type = "text" placeholder = "Nome Usuário" value = "" style="width:400px;"></p>
 				<p>
@@ -65,11 +66,14 @@
 				<button class="button alt"  type="submit">
 					Filtrar
 				</button>
+
+				<section id = "tabelaChamados"></section>
+
 			</form>
 			
 			<h4> <br> Filtros:  </h4>
 			
-			<section id = "bemnatabela">
+			<section>
 				<div class="table-wrapper">
 					<table>
 						<thead>
