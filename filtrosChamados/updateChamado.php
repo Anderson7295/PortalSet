@@ -5,6 +5,7 @@
 
 
     $solucao = $_POST['solucao'];
+    $andamento = $_POST['andamento'];
     $status = $_POST['status'];
     
     $ch = $_POST['ch'];
@@ -53,6 +54,13 @@
     $sql4 = "UPDATE chamadosset SET UltimaModificacao = '$dateTime' WHERE NumeroChamado = $ch";
     $result4 = mysqli_query($conexao, $sql4);
     
+    // INSERE A NOVO ANDAMENTO NO BANCO
+    if($andamento != "")
+    {
+        $sql5 = "UPDATE chamadosset SET Andamento = '$andamento' WHERE NumeroChamado = $ch";
+        $result5 = mysqli_query($conexao, $sql5);
+    }
+
     // INSERE A NOVA SOLUCAO NO BANCO
     if($solucao != "")
     {
@@ -61,7 +69,7 @@
     }
     
     //INSERE NO BANCO E VERIFICA SE INSERIU
-    if ($result && $result4 || $result1 && $result4 || $result1 && $result && $result4 ) //ALTERADA SOLUÇÃO E STATUS, 
+    if ($result5 || $result || $result1 && $result5 || $result1 && $result || $result1 && $result && $result5 ) 
     {
         echo"<script language='javascript' type='text/javascript'>alert('Salvo com sucesso');window.location.href='FiltrarChamadosEdita.php';</script>";
     } 
@@ -72,6 +80,7 @@
         echo "Error: " . $sql2 . "<br>" . mysqli_error($conexao);
         echo "Error: " . $sql3 . "<br>" . mysqli_error($conexao);
         echo "Error: " . $sql4 . "<br>" . mysqli_error($conexao);
+        echo "Error: " . $sql5 . "<br>" . mysqli_error($conexao);
         echo"<script language='javascript' type='text/javascript'>alert('FALHA, SEUS DADOS NÃO FORAM SALVOS.');window.location.href='EditarChamados.php';</script>";
     }
     

@@ -110,6 +110,11 @@
 					</div>
 
 					<div class="wrap-input3 validate-input" data-validate = "Digite uma mensagem">
+						<textarea class="input3" name="andamento" rows="5" placeholder="Andamento: <?php echo $linha['Andamento']; ?>"></textarea>
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input" data-validate = "Digite uma mensagem">
 						<textarea class="input3" name="solucao" rows="12" placeholder="Solução: <?php echo $linha['Solucao']; ?>"></textarea>
 						<span class="focus-input3"></span>
 					</div>

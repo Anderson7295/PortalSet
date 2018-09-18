@@ -5,7 +5,7 @@
 
 <html>
 	<head>
-		<title>Portal Set Jeans</title>
+		<title>Pesquisar (TÉCNICO)</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../assets/css/main.css"/>
@@ -143,7 +143,7 @@
 									{								
 										echo	'<tr>';
 										echo	'<form action = "EditarChamados.php" method="POST">';
-										echo	'<input type="hidden" name = "ch" id = "ch" value ="'.$row["NumeroChamado"].'">';
+										echo	'<input type="hidden" name = "ch" id = "ch" value ="'.$row["NumeroChamado"].'">'; //passa o numero do chamado para a tela de edição
 										echo	'<td><button type = "submit" id = "btn" class="button">!</button></td>';
 										echo	'<td>'. $row["NumeroChamado"]. '</td>';
 										echo	'<td >'. wordwrap($row["Mensagem"], 15, "\n", true) . '</td>';

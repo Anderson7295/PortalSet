@@ -5,7 +5,7 @@
 
 <html>
 	<head>
-		<title>Portal Set Jeans</title>
+		<title>Pesquisar chamados</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
@@ -61,7 +61,23 @@
 						<option>Dúvida</option>
 					</select>
 				</p>
+				
 				<p>Data de abertura: <input id = "dataAbertura" name = "dataAbertura" type = "date" value = "" style = "color:black;"></p>
+
+				<!-- <p>
+					<input type="radio" id="dataAbertura" 
+                	name="dataAbertura" value="<?php $date ?>" checked />
+            		<label for="dataAbertura">Desativado</label>
+
+					<input type="radio" id="dataAbertura" 
+                	name="dataAbertura" value="<?php $date ?>" />
+            		<label for="dataAbertura">Hoje</label>
+					
+					<input type="radio" id="dataAbertura" 
+                	name="dataAbertura" value="<?php $date ?>" />
+            		<label for="dataAbertura">Selecionar data</label>
+				</p> -->
+				
 
 				<button class="button alt"  type="submit">
 					Filtrar
