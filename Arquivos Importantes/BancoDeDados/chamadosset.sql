@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Set-2018 às 05:24
+-- Generation Time: 18-Set-2018 às 14:52
 -- Versão do servidor: 10.1.35-MariaDB
 -- versão do PHP: 7.2.9
 
@@ -31,15 +31,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `chamadosset` (
   `NumeroChamado` int(11) NOT NULL,
   `DataAbertura` datetime DEFAULT NULL,
-  `NomeUsuario` varchar(50) NOT NULL,
-  `Mensagem` varchar(1000) NOT NULL,
+  `NomeUsuario` varchar(100) NOT NULL,
+  `Mensagem` varchar(3000) NOT NULL,
   `Email` varchar(100) NOT NULL,
   `Ramal` int(11) DEFAULT NULL,
   `Tipo` varchar(15) DEFAULT NULL,
   `Setor` varchar(25) DEFAULT NULL,
   `Urgencia` varchar(50) NOT NULL,
-  `Andamento` varchar(500) NOT NULL,
-  `Solucao` varchar(1000) NOT NULL,
+  `Andamento` varchar(3000) NOT NULL,
+  `Solucao` varchar(3000) NOT NULL,
   `Status` varchar(25) NOT NULL DEFAULT 'Aberto',
   `UltimaModificacao` datetime DEFAULT NULL,
   `DataAndamento` datetime DEFAULT NULL,
@@ -57,59 +57,6 @@ INSERT INTO `chamadosset` (`NumeroChamado`, `DataAbertura`, `NomeUsuario`, `Mens
 (14, '2018-09-10 14:32:10', 'Teste', 'Testeeeeeeee', 'Teste@teste.com.br', 111, 'Problema', 'Administrativo', 'Pode aguardar', 'a', 'b', 'Em andamento', '2018-09-17 23:50:24', '2018-09-17 23:50:24', NULL),
 (15, '2018-09-11 10:36:10', 'Anderson', 'Teste de data', 'And@1234.com.br', 218, 'Problema', 'Administrativo', 'Pode aguardar', '', '', 'Aberto', NULL, NULL, NULL),
 (16, '2018-09-18 00:16:17', 'disuhfjskd', 'adasfasfdfsdafsadfsadfa', 'ujhdcsakdh', 0, 'Problema', 'Administrativo', 'Interrompe totalmente o fluxo de trabalho', '', '', 'Aberto', NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `usuarios`
---
-
-CREATE TABLE `usuarios` (
-  `ID` int(10) UNSIGNED ZEROFILL NOT NULL,
-  `login` varchar(30) DEFAULT NULL,
-  `senha` varchar(40) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`ID`, `login`, `senha`) VALUES
-(0000000003, 'anderson', 'and7295'),
-(0000000001, 'a', '1');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `chamadosset`
---
-ALTER TABLE `chamadosset`
-  ADD PRIMARY KEY (`NumeroChamado`),
-  ADD UNIQUE KEY `NumeroChamado` (`NumeroChamado`);
-
---
--- Indexes for table `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`ID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `chamadosset`
---
-ALTER TABLE `chamadosset`
-  MODIFY `NumeroChamado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `ID` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
