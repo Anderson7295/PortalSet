@@ -78,7 +78,7 @@
 				
 				<br><br>
 
-				<div class="row">
+				<div class="row"> 
 					<div class="col-sm-3">
 						<label for="filtroDataAbertura">Data de abertura:</label>  
 						De <input id = "dataAbertura" name = "dataAbertura" type = "date" value = "" style = "color:black;"> à <input id = "dataAbertura2" name = "dataAbertura2" type = "date" value = "" style = "color:black;">
