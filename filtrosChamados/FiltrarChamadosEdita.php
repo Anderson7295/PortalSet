@@ -168,7 +168,7 @@
 									}
 								}
 
-								//MOSTRAR FILTROS UTILIZADOS
+								//MOSTRAR FILTROS UTILIZADOS INCLUINDO SEPARADOR
 								if(isset($filtros))
 								{				
 									foreach($mostrar as $valores) echo $valores . " - -|- - ";
