@@ -112,6 +112,7 @@
 
 								if( isset($_POST['chamado'])) $ch = $_POST['chamado'];
 								if( isset($_POST['dataAbertura'])) $dataAbertura = $_POST['dataAbertura'];
+								if( isset($_POST['dataAbertura2'])) $dataAbertura2 = $_POST['dataAbertura2'];
 								if( isset($_POST['nome'])) $nome = $_POST['nome'];
 								if( isset($_POST['urgencia'])) $urgencia = $_POST['urgencia'];
 								if( isset($_POST['status'])) $status = $_POST['status'];
@@ -142,24 +143,44 @@
 									$filtros[] = sprintf("Tipo = '%s'", $tipo);
 									$mostrar[] = sprintf("Tipo = '%s'", $tipo);
 								}
-								if(!empty($dataAbertura))
+								// BUSCA POR PERÍODO DE DATA
+								if(!empty($dataAbertura && $dataAbertura2))
 								{
-									$filtros[] = sprintf("cast(DataAbertura as date) = '%s'", $dataAbertura);
-									$mostrar[] = sprintf("Data de abertura  = '%s'", $dataAbertura);
+									$filtros[] = sprintf(" cast(DataAbertura as date) BETWEEN '%s'", $dataAbertura);
+									$filtros[] = sprintf(" '%s'", $dataAbertura2);
+									$mostrar[] = sprintf("Data de abertura  = entre '%s'", $dataAbertura);
+									$mostrar[] = sprintf("e '%s'", $dataAbertura2);
+								}
+								else
+								{
+									if(!empty($dataAbertura))
+									{
+										$filtros[] = sprintf("cast(DataAbertura as date) = '%s'", $dataAbertura);
+										$mostrar[] = sprintf("Data de abertura  = '%s'", $dataAbertura);
+									}
+									else
+									{
+										if(!empty($dataAbertura2))
+										{
+											$filtros[] = sprintf("cast(DataAbertura as date) = '%s'", $dataAbertura2);
+											$mostrar[] = sprintf("Data de abertura  = '%s'", $dataAbertura2);
+										}
+									}
 								}
 
-								//MOSTRAR FILTROS UTILIZADOS 
+								//MOSTRAR FILTROS UTILIZADOS INCLUINDO SEPARADOR
 								if(isset($filtros))
 								{				
 									foreach($mostrar as $valores) echo $valores . " - -|- - ";
 								}
 								
-
+								
 
 								if(isset($filtros))
 								{
 									$sql = "SELECT * FROM chamadosset WHERE ".implode(' AND ', $filtros);//importando todos os filtros na pesquisa do banco
 									$result = mysqli_query($conexao, $sql);
+									
 									while ($row = mysqli_fetch_assoc($result))
 									{
 										echo	'<tr>';
