@@ -150,27 +150,28 @@
 									$filtros[] = sprintf("Tipo = '%s'", $tipo);
 									$mostrar[] = sprintf("Tipo = '%s'", $tipo);
 								}
+
 								// BUSCA POR PERÍODO DE DATA ABERTURA
 								if(!empty($dataAbertura && $dataAbertura2))
 								{
 									$filtros[] = sprintf(" cast(DataAbertura as date) BETWEEN '%s'", $dataAbertura);
 									$filtros[] = sprintf(" '%s'", $dataAbertura2);
-									$mostrar[] = sprintf("Data de abertura  = entre '%s'", $dataAbertura);
-									$mostrar[] = sprintf("e '%s'", $dataAbertura2);
+									$mostrar[] = sprintf("Data de abertura  = entre '%s'", date("d-m-Y",strtotime($dataAbertura)));
+									$mostrar[] = sprintf("e '%s'", date("d-m-Y",strtotime($dataAbertura2)));
 								}
 								else
 								{
 									if(!empty($dataAbertura))
 									{
 										$filtros[] = sprintf("cast(DataAbertura as date) = '%s'", $dataAbertura);
-										$mostrar[] = sprintf("Data de abertura  = '%s'", $dataAbertura);
+										$mostrar[] = sprintf("Data de abertura  = '%s'", date("d-m-Y",strtotime($dataAbertura)));
 									}
 									else
 									{
 										if(!empty($dataAbertura2))
 										{
 											$filtros[] = sprintf("cast(DataAbertura as date) = '%s'", $dataAbertura2);
-											$mostrar[] = sprintf("Data de abertura  = '%s'", $dataAbertura2);
+											$mostrar[] = sprintf("Data de abertura  = '%s'", date("d-m-Y",strtotime($dataAbertura2)));
 										}
 									}
 								}
@@ -180,22 +181,22 @@
 								{
 									$filtros[] = sprintf(" cast(DataFechamento as date) BETWEEN '%s'", $dataFechamento);
 									$filtros[] = sprintf(" '%s'", $dataFechamento2);
-									$mostrar[] = sprintf("Data de fechamento  = entre '%s'", $dataFechamento);
-									$mostrar[] = sprintf("e '%s'", $dataFechamento2);
+									$mostrar[] = sprintf("Data de fechamento  = entre '%s'", date("d-m-Y",strtotime($dataFechamento)));
+									$mostrar[] = sprintf("e '%s'", date("d-m-Y",strtotime($dataFechamento2)));
 								}
 								else
 								{
 									if(!empty($dataFechamento))
 									{
 										$filtros[] = sprintf("cast(DataFechamento as date) = '%s'", $dataFechamento);
-										$mostrar[] = sprintf("Data de fechamento  = '%s'", $dataFechamento);
+										$mostrar[] = sprintf("Data de fechamento  = '%s'", date("d-m-Y",strtotime($dataFechamento)));
 									}
 									else
 									{
 										if(!empty($dataFechamento2))
 										{
 											$filtros[] = sprintf("cast(DataFechamento as date) = '%s'", $dataFechamento2);
-											$mostrar[] = sprintf("Data de fechamento  = '%s'", $dataFechamento2);
+											$mostrar[] = sprintf("Data de fechamento  = '%s'", date("d-m-Y",strtotime($dataFechamento2)));
 										}
 									}
 								}
