@@ -32,40 +32,63 @@
 			<br><br><br>
 
 			<h3>Chamados Abertos </h3>
-			<form action="#tabelaChamados" method = "POST"> <b>Defina os filtros:</b>
-				<p><input id = "chamado" name = "chamado" type = "text" placeholder = "Nº Chamado" value = ""  style="width:150px;" ></p>
-				<p><input id = "nome" name = "nome" type = "text" placeholder = "Nome Usuário" value = "" style="width:400px;"></p>
-				<p>
-					<select name="urgencia" id="urgencia" style = "color:grey; width:400px">
-						<option value="">Urgência do chamado</option>
-						<option>Pode aguardar</option>
-						<option>Atrapalha o fluxo de trabalho</option>
-						<option>Interrompe o fluxo de trabalho exporadicamente</option>
-						<option>Interrompe totalmente o fluxo de trabalho</option>
-						<option>Urgente</option>
-						<option>Emergência</option>
-					</select>
-				</p>
-				<p>
-					<select name="status" id="status" style = "color:grey; width:150px">
-						<option value="">Status</option>
-						<option>Aberto</option>
-						<option>Em andamento</option>
-						<option>Fechado</option>
-					</select>
-				</p>
-				<p>
-					<select name="tipo" id="tipo" style = "color:grey; width:150px">
-						<option value="">Tipo de chamado</option>
-						<option>Problema</option>
-						<option>Dúvida</option>
-					</select>
-				</p>
-				<p>Data de abertura: <input id = "dataAbertura" name = "dataAbertura" type = "date" value = "" style = "color:black;"></p>
-				<section id = "tabela"></section>
+			<form action="#tabelaChamados" method = "POST"> <b>Defina os filtros:</b> <br><br>
+				<div class="row">
+					<div class="col-sm-5">
+						<input id = "chamado" name = "chamado" type = "text" placeholder = "Nº do Chamado" value = ""  style="width:150px;" >
+					</div>	
+
+					<div class="col-sm-10">						
+						<input id = "nome" name = "nome" type = "text" placeholder = "Nome Usuário" value = "" style="width:400px;">
+					</div>
+				</div>
+				<br>
+				<div class="row">
+				
+					<div class="col-sm-3">
+						<select name="urgencia" id="urgencia" style = "color:grey; width:400px">
+							<option value="">Urgência do chamado</option>
+							<option>Pode aguardar</option>
+							<option>Atrapalha o fluxo de trabalho</option>
+							<option>Interrompe o fluxo de trabalho exporadicamente</option>
+							<option>Interrompe totalmente o fluxo de trabalho</option>
+							<option>Urgente</option>
+							<option>Emergência</option>
+						</select>
+					</div>
+
+					<div class="col-sm-3">
+						<select name="status" id="status" style = "color:grey; width:150px">
+							<option value="">Status</option>
+							<option>Aberto</option>
+							<option>Em andamento</option>
+							<option>Fechado</option>
+						</select>
+					</div>
+
+					<div class="col-sm-3">
+						<select name="tipo" id="tipo" style = "color:grey; width:150px">
+							<option value="">Tipo de chamado</option>
+							<option>Problema</option>
+							<option>Dúvida</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<br> <label for="filtroDataAbertura">Data de abertura:</label>  
+						De <input id = "dataAbertura" name = "dataAbertura" type = "date" value = "" style = "color:black;"> à <input id = "dataAbertura2" name = "dataAbertura2" type = "date" value = "" style = "color:black;">
+					</div>
+				</div>
+
+				<!-- MAIS FILTROS -->
+				<br><br>
 				<button class="button alt"  type="submit">
 					Filtrar
 				</button>
+
+				<br><br><br><br><br><br><br><br><br><br>
 
 				<section id = "tabelaChamados"></section>
 
