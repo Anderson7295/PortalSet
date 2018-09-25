@@ -80,6 +80,11 @@
 						<br> <label for="filtroDataAbertura">Data de abertura:</label>  
 						De <input id = "dataAbertura" name = "dataAbertura" type = "date" value = "" style = "color:black;"> à <input id = "dataAbertura2" name = "dataAbertura2" type = "date" value = "" style = "color:black;">
 					</div>
+
+					<div class="col-sm-3">
+						<br> <label for="filtroDataFechamento">Data de fechamento:</label>  
+						De <input id = "dataFechamento" name = "dataFechamento" type = "date" value = "" style = "color:black;"> à <input id = "dataAFechamento2" name = "dataFechamento2" type = "date" value = "" style = "color:black;">
+					</div>
 				</div>
 
 				<!-- MAIS FILTROS -->
@@ -114,6 +119,8 @@
 								if( isset($_POST['chamado'])) $ch = $_POST['chamado'];
 								if( isset($_POST['dataAbertura'])) $dataAbertura = $_POST['dataAbertura'];
 								if( isset($_POST['dataAbertura2'])) $dataAbertura2 = $_POST['dataAbertura2'];
+								if( isset($_POST['dataFechamento'])) $dataFechamento = $_POST['dataFechamento'];
+								if( isset($_POST['dataFechamento2'])) $dataFechamento2 = $_POST['dataFechamento2'];
 								if( isset($_POST['nome'])) $nome = $_POST['nome'];
 								if( isset($_POST['urgencia'])) $urgencia = $_POST['urgencia'];
 								if( isset($_POST['status'])) $status = $_POST['status'];
@@ -144,6 +151,7 @@
 									$filtros[] = sprintf("Tipo = '%s'", $tipo);
 									$mostrar[] = sprintf("Tipo = '%s'", $tipo);
 								}
+								
 								if(!empty($dataAbertura && $dataAbertura2))
 								{
 									$filtros[] = sprintf(" cast(DataAbertura as date) BETWEEN '%s'", $dataAbertura);
@@ -167,6 +175,32 @@
 										}
 									}
 								}
+
+								// BUSCA POR PERÍODO DE DATA FECHAMENTO
+								if(!empty($dataFechamento && $dataFechamento2))
+								{
+									$filtros[] = sprintf(" cast(DataFechamento as date) BETWEEN '%s'", $dataFechamento);
+									$filtros[] = sprintf(" '%s'", $dataFechamento2);
+									$mostrar[] = sprintf("Data de fechamento  = entre '%s'", $dataFechamento);
+									$mostrar[] = sprintf("e '%s'", $dataFechamento2);
+								}
+								else
+								{
+									if(!empty($dataFechamento))
+									{
+										$filtros[] = sprintf("cast(DataFechamento as date) = '%s'", $dataFechamento);
+										$mostrar[] = sprintf("Data de fechamento  = '%s'", $dataFechamento);
+									}
+									else
+									{
+										if(!empty($dataFechamento2))
+										{
+											$filtros[] = sprintf("cast(DataFechamento as date) = '%s'", $dataFechamento2);
+											$mostrar[] = sprintf("Data de fechamento  = '%s'", $dataFechamento2);
+										}
+									}
+								}
+
 
 								//MOSTRAR FILTROS UTILIZADOS INCLUINDO SEPARADOR
 								if(isset($filtros))
