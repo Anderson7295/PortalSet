@@ -69,7 +69,7 @@
     }
     
     //INSERE NO BANCO E VERIFICA SE INSERIU
-    if ($result5 || $result || $result1 && $result5 || $result1 && $result || $result1 && $result && $result5 ) 
+    if ($result5 || $result || $result1 && $result5 || $result1 && $result || $result1 && $result && $result5 || $result1) 
     {
         echo"<script language='javascript' type='text/javascript'>alert('Salvo com sucesso');window.location.href='FiltrarChamadosEdita.php';</script>";
     } 
