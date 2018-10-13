@@ -23,7 +23,7 @@
         echo"<script language='javascript' type='text/javascript'>alert('SOLICITAÇÃO ENVIADA COM SUCESSO.');window.location.href='../Home.html';</script>";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conexao);
-        echo"<script language='javascript' type='text/javascript'>alert('FALHA NO ENVIO DA SOLICITAÇÃO.');window.location.href='../Formulario.html';</script>";
+        //echo"<script language='javascript' type='text/javascript'>alert('FALHA NO ENVIO DA SOLICITAÇÃO.');window.location.href='../Formulario.html';</script>";
     }
 
     //require 'mostrarTodos.php'; 
