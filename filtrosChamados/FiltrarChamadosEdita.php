@@ -14,8 +14,9 @@
 	<body>
  
 		<!-- Header -->
+			<!-- Header -->
 			<header id="header">
-				<div class="logo"><a href="https://www.linkedin.com/in/anderson-messias-97002a141">Set Jeans <span>by ANDERSON</span></a></div>
+				<div class="logo"><a href="../Home.html">Set Jeans </a> <a href="https://www.linkedin.com/in/anderson-messias-97002a141"><span>by ANDERSON</span></a> </div>
 				<a href="#menu"><span>Menu</span></a>
 			</header>
 
