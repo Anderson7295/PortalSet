@@ -46,6 +46,8 @@
 						</thead>
 						<tbody>
 							<?php
+								//TIPO DE BOTÃO(AÇÃO CLICADA)
+								if( isset($_POST['acao'])) $acao = $_POST['acao'];
 
 								if( isset($_POST['chamado'])) $ch = $_POST['chamado'];
 								if( isset($_POST['dataAbertura'])) $dataAbertura = $_POST['dataAbertura'];
@@ -165,29 +167,16 @@
 									$totalRegistros = mysqli_num_rows ($result);
 								}
 
-								
-								//var_dump($sqlteste);
-									
-								// COM FILTRO DE DATA
-								// $filtroData = $date;//default data HOJE
-								// if( isset($_POST['data']))
-								// {
-								// 	$filtroData = $_POST['data'];
-								// 	$sql = "SELECT * FROM chamadosset WHERE cast(DataAbertura as date) = '$filtroData' ";
-								// 	$result = mysqli_query($conexao, $sql);
-								// 	while ($row = mysqli_fetch_assoc($result))
-								// 	{
-								// 		echo	'<tr>';
-								// 		echo	'<td>'. $row["NumeroChamado"]. '</td>';
-								// 		echo	'<td width = "100px" heigth = "50px">'. $row["Mensagem"]. '</td>';
-								// 		echo	'<td>'. $row["NomeUsuario"]. '</td>';
-								// 		echo	'<td>'. $row["Tipo"]. '</td>';
-								// 		echo	'</tr>';
-								// 	}
-									
-								// 	$totalRegistros = mysqli_num_rows ($result);	
-								// }
+								//BOTÕES DIFERENTES NA TELA DE FILTRO
+								if( $acao == "PDF")
+								{
+									echo "PDF";
+								}
+								if( $acao == "Excel")
+								{
+									echo "Excel";
 
+								}
 								
 								// MOSTRANDO DATA INVERTIDA
 								//echo date('d-m-Y', strtotime($filtroData));

@@ -92,13 +92,12 @@
 				
 				<!-- MAIS FILTROS -->
 				<br><br>
-				<button class="button alt"  type="submit">
-					Filtrar
-				</button>
+			
+				<input type="Submit" name="acao" value="Filtrar"> 
+				<input type="Submit" name="acao" value="Excel"> 
+				<input type="Submit" name="acao" value="PDF"> 
 
 				<br><br><br><br><br><br><br><br><br><br>
-
-				<section id = "tabelaChamados"></section>
 
 			</form>
 			

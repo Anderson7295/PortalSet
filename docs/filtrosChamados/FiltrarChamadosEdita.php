@@ -93,9 +93,10 @@
 
 				<!-- MAIS FILTROS -->
 				<br><br>
-				<button class="button alt"  type="submit">
-					Filtrar
-				</button>
+
+				<input type="Submit" name="acaoedita" value="Filtrar"> 
+				<input type="Submit" name="acaoedita" value="Excel"> 
+				<input type="Submit" name="acaoedita" value="PDF"> 
 
 				<br><br><br><br><br><br><br><br><br><br>
 
