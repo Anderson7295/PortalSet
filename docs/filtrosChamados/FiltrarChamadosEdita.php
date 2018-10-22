@@ -32,7 +32,7 @@
 
 			<br><br><br>
 
-			<h3>Chamados Abertos </h3>
+			<h3>Pesquisa de Chamados</h3>
 			<form action="TabelaChamadosEdita.php" method = "POST"> <b>Defina os filtros:</b> <br><br>
 				<div class="row">
 					<div class="col-sm-5">
