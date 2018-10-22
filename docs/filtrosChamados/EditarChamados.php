@@ -50,7 +50,7 @@
 			<div class="wrap-contact3">
 				<form action="updateChamado.php" class="contact3-form validate-form" method="POST">
 					<ul class="icons">
-						<li><a href="FiltrarChamadosEdita.php" class="icon round fas fa-mail-reply"><span class="label"></span></a></li>
+						<li><a href="javascript:window.history.go(-1)" class="icon round fas fa-mail-reply"><span class="label"></span></a></li>
 						<li><a href="../Home.html" class="icon round fas fa-home"><span class="label"></span></a></li>
 					</ul>
 

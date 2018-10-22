@@ -15,14 +15,14 @@
 		<!-- Header -->
 			<!-- Header -->
 			<header id="header">
-				<div class="logo"><a href="../Home.html">Set Jeans </a> <a href="https://www.linkedin.com/in/anderson-messias-97002a141"><span>by ANDERSON</span></a> </div>
+				<div class="logo"><a href="../docs/Home.html">Set Jeans </a> <a href="https://www.linkedin.com/in/anderson-messias-97002a141"><span>by ANDERSON</span></a> </div>
 				<a href="#menu"><span>Menu</span></a>
 			</header>
 
 		<!-- Nav -->
 		<nav id="menu">
 				<ul class="links">
-					<li><a href="Home.html">Página Inicial</a></li>
+					<li><a href="../Home.html">Página Inicial</a></li>
 					<li><a href="Formulario.html">Dúvidas e problemas</a></li>
 					<li><a href="FormularioLogin/LoginChamados.html">Atender chamados</a></li>
 					<li><a href="VerChamados.php">Ver todos os chamados abertos</a></li>
