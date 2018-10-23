@@ -141,40 +141,105 @@
 										}
 									}
 								}
-
-								//MOSTRAR FILTROS UTILIZADOS INCLUINDO SEPARADOR
-								if(isset($filtros))
-								{				
-									foreach($mostrar as $valores) echo $valores . " - -|- - ";
-								}
 								
-								
-
 								if(isset($filtros))
 								{
 									$sql = "SELECT * FROM chamadosset WHERE ".implode(' AND ', $filtros);//importando todos os filtros na pesquisa do banco
 									$result = mysqli_query($conexao, $sql);
 									
-									while ($row = mysqli_fetch_assoc($result))
+									//BOTÃO FILTRAR
+									if( $acao == "Filtrar")
 									{
-										echo	'<tr>';
-										echo	'<td>'. $row["NumeroChamado"]. '</td>';
-										echo	'<td >'. wordwrap($row["Mensagem"], 15, "\n", true) . '</td>';
-										echo	'<td>'. $row["NomeUsuario"]. '</td>';
-										echo	'<td>'. $row["Tipo"]. '</td>';
-										echo	'</tr>';
-									}
-									$totalRegistros = mysqli_num_rows ($result);
-								}
+										//MOSTRAR FILTROS UTILIZADOS INCLUINDO SEPARADOR
+										if(isset($filtros))
+										{				
+											foreach($mostrar as $valores) echo $valores . " - -|- - ";
+										}
 
-								//BOTÕES DIFERENTES NA TELA DE FILTRO
+										while ($row = mysqli_fetch_assoc($result))
+										{
+											echo	'<tr>';
+											echo	'<td>'. $row["NumeroChamado"]. '</td>';
+											echo	'<td >'. wordwrap($row["Mensagem"], 15, "\n", true) . '</td>';
+											echo	'<td>'. $row["NomeUsuario"]. '</td>';
+											echo	'<td>'. $row["Tipo"]. '</td>';
+											echo	'</tr>';
+										}
+										$totalRegistros = mysqli_num_rows ($result);
+									}
+								}
+								
+
+								//BOTÃO RELATÓRIO PDF
 								if( $acao == "PDF")
 								{
 									echo "PDF";
 								}
+								//BOTÃO RELATÓRIO EXCEL
 								if( $acao == "Excel")
 								{
-									echo "Excel";
+									//NOME DO ARQUIVO A SER EXPORTADO
+									$arquivo = 'Relatório.xls';
+									
+									//TÍTULO DA PLANILHA OCUPANDO A QUANTIDADE DE COLUNAS DEFINIDA
+									// $html = '';
+									// $html .= '<table border = 2>';
+									// $html .= '<tr>';
+									// $html .= '<td colspan = "11"> RELATÓRIO DE CHAMADOS <tr>';
+									// $html .= '</tr>';
+
+									$html = '';
+									$html .= '<table border = 1>';
+									$html .= '<tr>';
+									$html .= '<td colspan = "11">';
+									foreach($mostrar as $valores) $html .="Filtros: " . $valores . " - -|- - ";
+									$html .= '<tr>'; 
+									$html .= '</tr>';
+
+									//DADOS DA PLANILHA - NOME DAS COLUNAS ETC...
+									$html .= '<tr>';
+									$html .= '<td><b> Nº CH </b></td>';
+									$html .= '<td><b> Descrição </b></td>';
+									$html .= '<td><b> Nome </b></td>';
+									$html .= '<td><b> Tipo </b></td>';
+									$html .= '<td><b> Email </b></td>';
+									$html .= '<td><b> Ramal </b></td>';
+									$html .= '<td><b> Setor </b></td>';
+									$html .= '<td><b> Urgencia </b></td>';
+									$html .= '<td><b> Andamento </b></td>';
+									$html .= '<td><b> Solucao </b></td>';
+									$html .= '<td><b> Status </b></td>';
+									$html .= '</tr>';
+
+									//LOOP DE DADOS
+									while ($row = mysqli_fetch_assoc($result))
+										{
+											$html.=	'<tr>';
+											$html.=	'<td>'. $row["NumeroChamado"]. '</td>';
+											$html.=	'<td >'. $row["Mensagem"] . '</td>';
+											$html.=	'<td>'. $row["NomeUsuario"]. '</td>';
+											$html.=	'<td>'. $row["Tipo"]. '</td>';
+											$html.=	'<td>'. $row["Email"]. '</td>';
+											$html.=	'<td>'. $row["Ramal"]. '</td>';
+											$html.=	'<td>'. $row["Setor"]. '</td>';
+											$html.=	'<td>'. $row["Urgencia"]. '</td>';
+											$html.=	'<td>'. $row["Andamento"]. '</td>';
+											$html.=	'<td>'. $row["Solucao"]. '</td>';
+											$html.=	'<td>'. $row["Status"]. '</td>';
+											$html.=	'</tr>';
+									}
+									
+									//CONFIGURAÇÕES PARA FORÇAR O DOWNLOAD
+									header ("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+									header ("Last-Modified: " . gmdate("D,d M YH:i:s") . "GMT");
+									header ("Cache-Control: no-cache, must revalidate");
+									header ("Pragma: no-cache");
+									header ("Content-type: application/x-msexcel");
+									header ("Content-Disposition: attachment; filename=\"{$arquivo}\"");
+									header ("Content-Description: PHP Generated Data");
+
+									//ENVIA O CONTEÚDO DO ARQUIVO
+									echo $html;
 
 								}
 								
