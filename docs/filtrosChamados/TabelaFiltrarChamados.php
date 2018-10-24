@@ -182,18 +182,18 @@
 									$arquivo = 'Relatório.xls';
 									
 									//TÍTULO DA PLANILHA OCUPANDO A QUANTIDADE DE COLUNAS DEFINIDA
-									// $html = '';
-									// $html .= '<table border = 2>';
-									// $html .= '<tr>';
-									// $html .= '<td colspan = "11"> RELATÓRIO DE CHAMADOS <tr>';
-									// $html .= '</tr>';
-
 									$html = '';
+									$html .= '<table border = 2>';
+									$html .= '<tr>';
+									$html .= '<td colspan = "11"> RELATÓRIO DE CHAMADOS <tr>';
+									$html .= '</tr>';
+
+									$html .= '';
 									$html .= '<table border = 1>';
 									$html .= '<tr>';
 									$html .= '<td colspan = "11">';
 									foreach($mostrar as $valores) $html .="Filtros: " . $valores . " - -|- - ";
-									$html .= '<tr>'; 
+									// $html .= '<tr>'; //PULAR LINHA
 									$html .= '</tr>';
 
 									//DADOS DA PLANILHA - NOME DAS COLUNAS ETC...
@@ -228,7 +228,8 @@
 											$html.=	'<td>'. $row["Status"]. '</td>';
 											$html.=	'</tr>';
 									}
-									
+									$html.= '</html>';
+
 									//CONFIGURAÇÕES PARA FORÇAR O DOWNLOAD
 									header ("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 									header ("Last-Modified: " . gmdate("D,d M YH:i:s") . "GMT");
