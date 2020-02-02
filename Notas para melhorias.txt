@@ -1,0 +1,16 @@
+=====================http://149.28.106.134/PortalSet/docs/filtrosChamados/FiltrarChamadosEdita.php================================
+* BOTÃO PARA EXCLUIR CHAMADO
+* APÓS EDITAR O CHAMADO, CONTINUAR NA TELA DE FILTRO COM OS DADOS CARREGADOS
+* MELHORAR INTERFACE (UTILIZAR ALGUM PADRÃO DE FRONTEND) - VERIFICAR PADRÃO UTILIZADO NO TRABALHO DE FRONTEND DA PÓS
+
+
+
+=====================http://149.28.106.134/PortalSet/docs/filtrosChamados/TabelaFiltrarChamados.php================================
+* EXIBIR O CAMPO "STATUS" E "SOLUÇÃO"
+* 
+
+
+
+=============================http://149.28.106.134/PortalSet/docs/Contatos/Contact.html=======================================
+* 
+
